@@ -1,0 +1,20 @@
+.home{
+    padding: 2rem 4rem;
+}
+
+.topics{
+    padding-top: 4rem;
+}
+.img{
+    margin: 2rem;
+}
+
+.community h2{
+    margin: 2rem;
+}
+
+@media (max-width:480px){
+    .row1 {
+        flex-direction: column-reverse;
+    }
+}
