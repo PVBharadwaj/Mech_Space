@@ -74,10 +74,10 @@ const Home = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      axios.post('https://mech-space.onrender.com/signup', {email})
+      axios.post('https://mech-space.onrender.com/', {email})
       .then(result => {console.log(result)
-          alert("Hurrah you have successfully signed in.")
-          navigate('/login')
+          alert("Hurrah you have successfully subscribed. Wait for the magic to begin.")
+          navigate('/')
       })
       .catch(err => console.log(err))
   }
