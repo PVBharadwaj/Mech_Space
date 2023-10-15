@@ -17,6 +17,8 @@ const EmployeeSchema = new mongoose.Schema({
     password: String
 })
 
+const port = 3001 || process.env.PORT;
+
 const EmployeeModel = mongoose.model("employees", EmployeeSchema)
 
 app.post("/login", (req, res) => {
@@ -41,6 +43,6 @@ app.post ('/signup', (req, res) => {
     .catch(err => res.json(err))
 })
 
-app.listen(3001, () => {
+app.listen(port, () => {
     console.log("Server is running")
 })
