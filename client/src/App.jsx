@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -8,6 +8,7 @@ import Home from './components/pages/Home'
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
 import { Routes, Route } from 'react-router-dom'
+import Chatbot from "./Chatbot"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/signup' element={<Signup />}></Route>  
         <Route path='/login' element={<Login />}></Route>
       </Routes> 
+    <Chatbot />
     <Footer />
     </div>
 

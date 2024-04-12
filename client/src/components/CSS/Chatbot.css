@@ -1,0 +1,25 @@
+.chatbot{
+    position: fixed;
+    /* height: 400px;
+    width: 300px; */
+    bottom: 30px ;
+    right: 30px;
+    /* background-color: red; */
+    color: blue;
+}
+
+.chatbot-icon{
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: solid rgb(134, 134, 255) 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatbot-img{
+    width: 20px;
+    height: 20px;
+}

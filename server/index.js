@@ -9,7 +9,15 @@ const app = express()
 app.use (express.json())
 app.use(cors())
 
-mongoose.connect(process.env.DB_URI)
+// mongoose.connect(process.env.DB_URI)
+
+
+mongoose.connect(process.env.DB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+    .then(() => console.log("MongoDB Connected"))
+    .catch(err => console.error("MongoDB Connection Error:", err));
 
 const EmployeeSchema = new mongoose.Schema({ 
     name: String,
@@ -17,9 +25,16 @@ const EmployeeSchema = new mongoose.Schema({
     password: String
 })
 
+const UserSchema = new mongoose.Schema({ 
+    username: String,
+    useremail: String,
+    userquery: String
+})
+
 const port = 3001 || process.env.PORT;
 
 const EmployeeModel = mongoose.model("employees", EmployeeSchema)
+const UserModel = mongoose.model("users", UserSchema)
 
 app.post("/login", (req, res) => {
     const {email, password} = req.body;
@@ -36,6 +51,15 @@ app.post("/login", (req, res) => {
         }
     })
 })
+
+app.post('/Chatbot', (req, res) => {
+    UserModel.create(req.body)
+      .then(users => res.json(users))
+      .catch(err => {
+        console.error("Error:", err);
+        res.status(500).json("Internal Server Error");
+      });
+  });
 
 app.post ('/signup', (req, res) => {
     EmployeeModel.create(req.body)
